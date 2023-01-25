@@ -4,6 +4,7 @@ namespace backend\models;
 use common\models\User;
 use Yii;
 use yii\base\Model;
+use yii\web\NotFoundHttpException;
 
 /**
  * User form
@@ -64,5 +65,14 @@ class UserForm extends Model
         }
 
         return $user->save();
+    }
+
+    public static function findUser($id)
+    {
+        $user = User::findOne(['id' => $id]);
+        if ($user === null) {
+            throw new NotFoundHttpException;
+        }
+        return $user;
     }
 }

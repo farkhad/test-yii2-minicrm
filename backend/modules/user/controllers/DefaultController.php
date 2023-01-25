@@ -5,7 +5,6 @@ use backend\models\UserForm;
 use common\models\User;
 use Yii;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -25,7 +24,7 @@ class DefaultController extends Controller
 
     public function actionEdit($id)
     {
-        $user = $this->findUser($id);
+        $user = UserForm::findUser($id);
         $model = new UserForm($user->toArray(['id', 'email', 'status']));
         if ($model->load(Yii::$app->request->post()) && $model->save($user)) {
             return $this->redirect('index');
@@ -36,16 +35,7 @@ class DefaultController extends Controller
 
     public function actionDelete($id)
     {
-        $this->findUser($id)->delete();
+        UserForm::findUser($id)->delete();
         return $this->redirect('index');
-    }
-
-    public function findUser($id)
-    {
-        $user = User::findOne(['id' => $id]);
-        if ($user === null) {
-            throw new NotFoundHttpException;
-        }
-        return $user;
     }
 }
