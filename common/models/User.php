@@ -29,6 +29,14 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
 
+    public static function getStatusOptions()
+    {
+        return [
+            self::STATUS_ACTIVE => Yii::t('app', 'Active'),
+            self::STATUS_INACTIVE => Yii::t('app', 'Inactive'),
+        ];
+    }
+
 
     /**
      * {@inheritdoc}
