@@ -37,6 +37,19 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public static function getRoleOptions()
+    {
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRoles();
+        $roleOptions = [];
+        if (count($roles)) {
+            foreach (array_keys($roles) as $roleName) {
+                $roleOptions[$roleName] = $roleName;
+            }
+        }
+        return $roleOptions;
+    }
+
 
     /**
      * {@inheritdoc}

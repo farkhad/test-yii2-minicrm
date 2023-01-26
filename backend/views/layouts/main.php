@@ -40,7 +40,7 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
     } else {
-        $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user']];
+        $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user/default/index']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],

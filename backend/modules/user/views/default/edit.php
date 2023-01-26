@@ -24,6 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
+                <?= $form->field($model, 'role')->dropDownList($roleOptions, ['value' => $model->role]) ?>
+
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
                     <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [

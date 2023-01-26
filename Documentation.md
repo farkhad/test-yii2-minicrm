@@ -2,3 +2,8 @@
 
 `./yii message/config-template backend/messages/config.php`
 `./yii message backend/messages/config.php`
+
+`./yii migrate/create init_rbac`
+`./yii migrate`
+
+Copy `console/rbac` to `backend/rbac`
