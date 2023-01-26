@@ -22,12 +22,12 @@ class DefaultController extends Controller
                     [
                         'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['usersList'],
+                        'roles' => ['Менеджер'],
                     ],
                     [
                         'actions' => ['edit', 'delete'],
                         'allow' => true,
-                        'roles' => ['usersEdit'],
+                        'roles' => ['Администратор'],
                     ],
                 ],
             ],
