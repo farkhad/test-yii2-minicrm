@@ -15,6 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\TicketForm;
 
 /**
  * Site controller
@@ -255,5 +256,15 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    public function actionTicket()
+    {
+        $model = new TicketForm;
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Thank you for creating a ticket.'));
+            return $this->redirect('ticket');
+        }
+        return $this->render('ticket', ['model' => $model]);
     }
 }
