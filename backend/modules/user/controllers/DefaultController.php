@@ -4,6 +4,7 @@ namespace app\modules\user\controllers;
 use backend\models\UserForm;
 use common\models\User;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -35,15 +36,15 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        // fetch user list
-        $users = User::find()->asArray()->all();
-
-        // status list
-        $statusOptions = User::getStatusOptions();
-
+        $dataProvider = new ActiveDataProvider([
+            'query' => User::find(),
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
         return $this->render('index', [
-            'users' => $users,
-            'statusOptions' => $statusOptions,
+            'statusOptions' => User::getStatusOptions(),
+            'dataProvider' => $dataProvider,
         ]);
     }
 
