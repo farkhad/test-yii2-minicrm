@@ -1,7 +1,6 @@
 <?php
 namespace app\modules\ticket\controllers;
 
-use backend\models\TicketForm;
 use common\models\Ticket;
 use Yii;
 use yii\data\ActiveDataProvider;
