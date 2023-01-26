@@ -35,6 +35,18 @@ class Ticket extends ActiveRecord
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'name' => Yii::t('app', 'Ticket Name'),
+            'client_name' => Yii::t('app', 'Client Name'),
+            'product_name' => Yii::t('app', 'Product'),
+            'comment' => Yii::t('app', 'Commentary'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'status' => Yii::t('app', 'Status'),
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */

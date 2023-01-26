@@ -16,6 +16,9 @@ return [
         'user' => [
             'class' => 'app\modules\user\Module',
         ],
+        'ticket' => [
+            'class' => 'app\modules\ticket\Module',
+        ],
     ],
 
     // set target language to be Russian
