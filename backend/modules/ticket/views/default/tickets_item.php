@@ -1,5 +1,6 @@
 <?php
 
+use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
 $formatter = Yii::$app->formatter;
@@ -7,6 +8,7 @@ $formatter->locale = Yii::$app->language;
 ?>
 <tr>
     <th scope="row"><?= $index + 1?></th>
+    <td><?= Html::encode($model->name)?></td>
     <td>
     <?php if (Yii::$app->user->can('ticketsEdit')) :?>
         <a href="<?= Url::to(['default/edit', 'id' => $model->id])?>"><?= $model->client_name?></a>

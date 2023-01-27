@@ -1,6 +1,7 @@
 <?php
 namespace app\modules\ticket\controllers;
 
+use backend\modules\ticket\models\TicketForm;
 use common\models\Ticket;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -49,8 +50,9 @@ class DefaultController extends Controller
 
     public function actionEdit($id)
     {
-        $model = Ticket::findOne(['id' => $id]);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $ticket = Ticket::findOne(['id' => $id]);
+        $model = new TicketForm($ticket->toArray());
+        if ($model->load(Yii::$app->request->post()) && $model->save($ticket)) {
             return $this->redirect('index');
         }
 

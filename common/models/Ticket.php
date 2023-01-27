@@ -44,6 +44,8 @@ class Ticket extends ActiveRecord
             'comment' => Yii::t('app', 'Commentary'),
             'created_at' => Yii::t('app', 'Created At'),
             'status' => Yii::t('app', 'Status'),
+            'phone' => Yii::t('app', 'Phone'),
+            'price' => Yii::t('app', 'Price'),
         ];
     }
 

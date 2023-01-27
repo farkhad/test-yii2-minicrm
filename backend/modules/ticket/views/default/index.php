@@ -14,6 +14,7 @@ echo ListView::widget([
     <thead>
       <tr>
         <th scope="col">' . Yii::t('app', '#') . '</th>
+        <th scope="col">' . Yii::t('app', 'Ticket Name') . '</th>
         <th scope="col">' . Yii::t('app', 'Client Name') . '</th>
         <th scope="col">' . Yii::t('app', 'Phone') . '</th>
         <th scope="col">' . Yii::t('app', 'Product') . '</th>
